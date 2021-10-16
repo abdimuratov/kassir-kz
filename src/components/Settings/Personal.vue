@@ -15,7 +15,7 @@
         alt="avatar"
       />
       <div>
-        <div>Алишер Кожахметов</div>
+        <div>{{ user.first_name}} {{ user.last_name }}</div>
 
         <div class="userInfo-username">+add username</div>
       </div>
@@ -29,9 +29,8 @@
           class="rad-input"
           id="radio-1"
           type="radio"
-          name="gender"
-          value="male"
-          checked
+          value="Male"
+          :checked="user.gender === 'Male'"
         />
 
         <div class="rad-design"></div>
@@ -45,8 +44,8 @@
           id="radio-1"
           type="radio"
           name="gender"
-          value="female"
-          checked
+          value="Female"
+          :checked="user.gender === 'Female'"
         />
 
         <div class="rad-design"></div>
@@ -61,7 +60,7 @@
       <button type="button" class="personal-item-button">Изменить</button>
     </div>
 
-    <div class="mb-40">Алматы, Казахстан</div>
+    <div class="mb-40">{{ user.city }}</div>
 
     <div class="personal-item">
       <div class="personal-item-title">Почта</div>
@@ -69,7 +68,7 @@
       <button type="button" class="personal-item-button">Изменить</button>
     </div>
 
-    <div class="mb-40">hebecik340@mtlcz.com</div>
+    <div class="mb-40">{{ user.email }}</div>
 
     <div class="personal-item">
       <div class="personal-item-title">Пароль</div>
@@ -85,6 +84,16 @@
     />
   </div>
 </template>
+
+<script>
+import { mapState } from "vuex";
+
+export default {
+  computed: {
+    ...mapState(['user']),
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 .personal {

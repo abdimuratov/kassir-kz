@@ -28,7 +28,7 @@
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnOnMmOpZGJs5tB3cswAr71EATXJG8nm7TQQ&usqp=CAU"
             alt=""
           />
-          <div>Алишер</div>
+          <div>{{ user.first_name }}</div>
         </div>
       </div>
     </div>
@@ -60,24 +60,29 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   data() {
     return {
       isActive: false,
     };
   },
+
+  computed: {
+    ...mapState(['user']),
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .header {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
   padding: 18px 92px;
   font-size: 18px;
-
-  select {
-    background-color: transparent;
-    border: 0;
-  }
+  z-index: 1;
 
   &-container {
     margin-bottom: 18px;
@@ -156,8 +161,6 @@ export default {
     left: 2px;
     width: 22px;
     height: 22px;
-    -webkit-box-shadow: inset 0px 0px 0px 0.5px rgba(0, 0, 0, 0.04);
-    -moz-box-shadow: inset 0px 0px 0px 0.5px rgba(0, 0, 0, 0.04);
     box-shadow: inset 0px 0px 0px 0.5px rgba(0, 0, 0, 0.04);
     border-radius: 50%;
     background-color: #fff;

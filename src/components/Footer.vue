@@ -93,9 +93,10 @@
         </div>
       </div>
     </div>
+
     <div class="bottomSection">
       <div class="bottomSection-selectors">
-        <div class="bottomSection-copyright">© 2005–2021 Kassir.kz</div>
+        <div class="bottomSection-copyright">© 2005–{{ currentYear }} Kassir.kz</div>
 
         <select>
           <option selected value="ru">РУ</option>
@@ -118,10 +119,24 @@
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    currentYear() {
+      return new Date().getFullYear().toString()
+    }
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 .footer {
   padding: 40px 92px 20px 92px;
   background: #f8f8f8;
+  
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.209209 0.183058C0.488155 -0.0610195 0.940415 -0.0610195 1.21936 0.183058L5 3.49112L8.78064 0.183058C9.05958 -0.0610195 9.51184 -0.0610195 9.79079 0.183058C10.0697 0.427136 10.0697 0.822864 9.79079 1.06694L5.50508 4.81694C5.22613 5.06102 4.77387 5.06102 4.49492 4.81694L0.209209 1.06694C-0.0697365 0.822864 -0.0697365 0.427136 0.209209 0.183058Z' fill='%23959595'/%3E%3C/svg%3E%0A");
+  }
 
   &-title {
     font-size: 20px;

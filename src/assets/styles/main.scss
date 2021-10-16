@@ -8,7 +8,10 @@
 }
 
 #app {
+  display: flex;
+  flex-direction: column;
   max-width: 1440px;
+  min-height: 100vh;
   margin: 0 auto;
   font-family: "Graphik LC Web Regular", Arial, sans-serif;
   font-size: 16px;
@@ -20,10 +23,28 @@ body {
   input, button, select {
     font-family: inherit;
     font-size: inherit;
+    outline: none;
+  }
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.209209 0.683058C0.488155 0.43898 0.940415 0.43898 1.21936 0.683058L5 3.99112L8.78064 0.683058C9.05958 0.438981 9.51184 0.438981 9.79079 0.683058C10.0697 0.927136 10.0697 1.32286 9.79079 1.56694L5.50508 5.31694C5.22613 5.56102 4.77387 5.56102 4.49492 5.31694L0.209209 1.56694C-0.0697365 1.32286 -0.0697365 0.927136 0.209209 0.683058Z' fill='black'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat, repeat;
+  background-position: right 0 top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  border: none;
+  padding: 0 14px 0 0;
+  font-family: inherit;
+  font-size: inherit;
+  select::-ms-expand {
+    display: none;
   }
 }
 
 .content {
+  flex: 1;
   padding: 70px 92px 100px 92px;
 }
 

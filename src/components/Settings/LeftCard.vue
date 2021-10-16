@@ -7,15 +7,13 @@
       />
 
       <div>
-        <div class="userInfo-name">Алишер Кожахметов</div>
+        <div class="userInfo-name">{{ user.first_name }} {{ user.last_name }}</div>
 
-        <div class="userInfo-email">hebecik340@mtlcz.com</div>
+        <div class="userInfo-email">{{ user.email }}</div>
       </div>
     </div>
     <div class="navbar">
-      <router-link
-        to="/settings/personal"
-        class="navbar-item"
+      <router-link to="/settings/personal" class="navbar-item"
         >Личные данные</router-link
       >
 
@@ -31,10 +29,20 @@
         >Избранное</router-link
       >
 
-      <router-link to="//" class="navbar-item">Выход</router-link>
+      <router-link to="/" class="navbar-item">Выход</router-link>
     </div>
   </div>
 </template>
+
+<script>
+import { mapState } from "vuex";
+
+export default {
+  computed: {
+    ...mapState(['user']),
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .leftCard {
